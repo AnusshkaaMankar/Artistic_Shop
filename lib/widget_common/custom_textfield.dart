@@ -9,7 +9,7 @@ children:[
     title!.text.color(Colors.pinkAccent).fontFamily(semibold).size(16).make(),
     5.heightBox,
     TextFormField(
-     // controller: controller,
+      controller: controller,
       decoration: InputDecoration(
       hintStyle: TextStyle(
       fontFamily: semibold,

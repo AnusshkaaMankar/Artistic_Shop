@@ -12,6 +12,7 @@ const forgetPass="Forget Password";
 const login="Log in";
 const signup="Sign up";
 const logout="Log out";
+const loggedin="Logged in Successfully";
 const account="My Profile";
 const createNewAccount="or,create a new account";
 const loginWith="Log in with";
