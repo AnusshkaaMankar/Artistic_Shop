@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "201974196587",
-    "project_id": "artisticshop-5f639",
-    "storage_bucket": "artisticshop-5f639.appspot.com"
+    "project_number": "349529811840",
+    "project_id": "artisticshop-cac7b",
+    "storage_bucket": "artisticshop-cac7b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:201974196587:android:bb1c8ac85c6dbec251042e",
+        "mobilesdk_app_id": "1:349529811840:android:e2e264113b3bcb2c38ef65",
         "android_client_info": {
           "package_name": "com.example.my_prj"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDKfCe7rr-boi6jGd-w3cDh8dbCODcpRaM"
+          "current_key": "AIzaSyA2OLT47cpjX7OVcP7puYtfAyUUWCiseDo"
         }
       ],
       "services": {
