@@ -1,13 +1,11 @@
 
 import 'package:my_prj/Const/constants.dart';
-
 import '../../Const/lists.dart';
-
 import '../../widget_common/home_buttons.dart';
 import 'components/featured_comp.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

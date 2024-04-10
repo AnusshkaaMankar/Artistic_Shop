@@ -1,22 +1,38 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+import 'package:my_prj/Const/auth_controller.dart';
 import 'package:my_prj/Const/lists.dart';
+import 'package:my_prj/account/components/details_card.dart';
+import 'package:my_prj/services/firestore_services.dart';
+import 'package:my_prj/views/auth_screen/login_screen.dart';
+import 'package:my_prj/account/edit_profile.dart';
+import 'package:my_prj/widget_common/profile_controller.dart';
 
 import '../Const/constants.dart';
 class AccountScreen extends StatelessWidget{
   const AccountScreen ({Key? key}): super(key: key);
   @override
   Widget build(BuildContext context) {
+    var controller=Get.put(profileController());
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: pinkAccent,
-                  title: account.text.fontFamily(bold).white.make(),
+      body:
+      StreamBuilder(
+        stream: FireStoreServices.getUser(currentUser!.uid), 
+        builder:(BuildContext context , AsyncSnapshot<QuerySnapshot> snapshot){
+          if(!snapshot.hasData){
+            return const Center(child:CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(pinkAccent),));
+          }else{
 
-      ),
-      body:Container(
+          var data=snapshot.data!.docs[0];
+
+          return Container(
         color:whiteColor,
          padding: const EdgeInsets.all(8),
          child:Column(children:[
          const Align( alignment:Alignment.topRight,
-         child: Icon(Icons.edit,color:pinkAccent)).onTap(() {},),
+         child: Icon(Icons.edit,color:pinkAccent)).onTap(() async{
+          Get.to(()=> EditProfile(data: data));
+         },),
           Row(children: [
             Image.asset(
               icaccount,
@@ -26,9 +42,9 @@ class AccountScreen extends StatelessWidget{
               Expanded(child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  "Anushka Mankar".text.fontFamily(semibold).size(18).color(pinkAccent).make(),
+                  "${data['name']}".text.fontFamily(semibold).size(18).color(pinkAccent).make(),
                   5.heightBox,
-                  "anushk30@gmail.com".text.fontFamily(semibold).color(Colors.black).make(),
+                  "${data['email']}".text.fontFamily(semibold).color(Colors.black).make(),
                 ],
               ))
 ,              OutlinedButton(style: OutlinedButton.styleFrom(
@@ -36,35 +52,22 @@ class AccountScreen extends StatelessWidget{
                   color:pinkAccent
                 )
               ),
-              onPressed:(){} ,
+              onPressed:() async{
+                await Get.put(AuthController()).signOutMethod(context);
+                Get.offAll(()=>const LoginScreen());
+              } ,
               child:logout.text.fontFamily(semibold).color(pinkAccent).make()
                     )          ]
             ),
             20.heightBox,
-           Row(children: [ Column(
-              children: [
-                "0".text.fontFamily(semibold).size(18).white.make(),
-                5.heightBox,
-                "In your Cart".text.fontFamily(semibold).size(18).white.make(),
-              ],
-            ).box.color(pinkAccent).rounded.width(context.screenWidth/3.3).height(60).padding(const EdgeInsets.all(4)).make(),
-            5.widthBox,
-          Column(
-              children: [
-                "16".text.fontFamily(semibold).size(18).white.make(),
-                5.heightBox,
-                "Total Orders".text.fontFamily(semibold).size(18).white.make(),
-              ],
-            ).box.color(pinkAccent).rounded.width(context.screenWidth/3.3).height(60).padding(const EdgeInsets.all(4)).make(),
-                     5.widthBox,
-                   Column(
-              children: [
-                "7".text.fontFamily(semibold).size(18).white.make(),
-                5.heightBox,
-                "In Wishlist".text.fontFamily(semibold).size(18).white.make(),
-              ],
-            ).box.color(pinkAccent).rounded.width(context.screenWidth/3.3).height(60).padding(const EdgeInsets.all(4)).make()  
-        ],),  
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              DetailsCard(count:data['cart_count'], title:"in your cart",width: context.screenWidth/3.4),
+              DetailsCard(count:data['wishlist_count'], title:"in your wishlist",width: context.screenWidth/3.4),
+              DetailsCard(count:data['order_count'], title:"your Orders",width: context.screenWidth/3.4),
+            ],
+           ),  
 
         20.heightBox,
         ListView.separated(
@@ -83,7 +86,10 @@ class AccountScreen extends StatelessWidget{
           }  ).box.white.rounded.padding(const EdgeInsets.symmetric(horizontal: 16,vertical: 5)).shadowSm.make()     
 ],),
     
-         ),
-      );
+         );
+          }
+         
+        }
+      ));
        }
     }

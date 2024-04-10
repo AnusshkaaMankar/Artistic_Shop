@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:my_prj/Const/auth_controller.dart';
 import 'package:my_prj/views/home/home.dart';
 import 'package:my_prj/views/home/home_screen.dart';
 
@@ -18,9 +20,12 @@ class SignupScreen extends StatefulWidget{
 
 class _SignupScreenState extends State<SignupScreen>{
   bool? isCheck=false ;
+  var controller=Get.put(AuthController());
 
-
-
+  var nameController=TextEditingController();
+  var emailController=TextEditingController();
+  var passwordController=TextEditingController();
+  var retypePasswordController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +42,12 @@ class _SignupScreenState extends State<SignupScreen>{
                   10.heightBox,
                   "Join the Eshop".text.fontFamily(bold).white.size(10).make(),
                   10.heightBox,
-                  Column(
+                  Obx(()=>Column(
                       children:[
-                        customTextField(hint: nameHint, title: Name),
-                        customTextField(hint: emailHint, title: email),
-                        customTextField(hint: passwordHint, title: password),
-                        customTextField(hint:passwordHint, title:retypePassword),
+                        customTextField(hint: nameHint, title: name , controller: nameController,ispass:false ),
+                        customTextField(hint: emailHint, title: email , controller: emailController , ispass: false),
+                        customTextField(hint: passwordHint, title: password , controller: passwordController, ispass: true),
+                        customTextField(hint:passwordHint, title:retypePassword , controller: retypePasswordController , ispass: true),
                         Align(
                             alignment:Alignment.centerRight,
                             child:TextButton(onPressed: (){
@@ -64,7 +69,7 @@ class _SignupScreenState extends State<SignupScreen>{
                               10.widthBox,
                               Expanded(
                                 child: RichText(
-                                  text: TextSpan(
+                                  text: const TextSpan(
                                     children: [
                                       TextSpan(
                                         text: "I agree to the ",
@@ -91,24 +96,35 @@ class _SignupScreenState extends State<SignupScreen>{
                                   ),
                                 ),
                               ),
-
-
-                              //expnded
-
-
-                              // 5.heightBox,
-                              // 10.heightBox,
-                              //richtext
                             ]
                         ),
                         5.heightBox,
-                        ourButton(color:isCheck==true?pinkAccent:lightGrey,title:signup, textcolor: whiteColor,onPress: (){
-                          Get.to(()=> Home());
+                        controller.isloading.value? const CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation(pinkAccent),
+                        ) : ourButton(color:isCheck==true?pinkAccent:lightGrey,title:signup, textcolor: whiteColor,onPress: ()async{
+                          if(isCheck!=false){
+                            controller.isloading(true);
+                            try {
+                              await controller
+                                .signupMethod(context: context , email : emailController.text ,password: passwordController.text).then((value){
+                                  return controller.storeUserData(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    name: nameController.text,
+                                  );
+                                }).then((value){
+                                  VxToast.show(context, msg: loggedin);
+                                  Get.offAll(const Home());
+                                });
+                            }catch(e){
+                              auth.signOut();
+                              VxToast.show(context, msg: loggedout);
+                              controller.isloading(false);
+                            }
+                          }
                         }).box.width(context.screenWidth-100).make(),
-
-
                         RichText(
-                            text: TextSpan(
+                            text: const TextSpan(
                                 children: [
                                   TextSpan(
                                     text:"Already have an account?" ,
@@ -124,19 +140,14 @@ class _SignupScreenState extends State<SignupScreen>{
                                       color: Colors.pinkAccent, // nkAssuming fontGrey is a color or define it explicitly
                                     ),
                                   )
-
-
-
                                 ]
                             )
 
                         ).onTap(() {
                           Get.back();
                         }),
-
-
                       ]
-                  ).box.white.rounded.padding(const EdgeInsets.all(16)).width(context.screenWidth-70).shadow3xl.make()
+                  ).box.white.rounded.padding(const EdgeInsets.all(16)).width(context.screenWidth-70).shadow3xl.make())
                 ]
             )
         )

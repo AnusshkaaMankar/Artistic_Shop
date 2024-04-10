@@ -11,7 +11,7 @@ import '../../controllers/home_controller.dart';
 import 'home_screen.dart';
 
 class Home extends StatelessWidget{
-  const Home ({Key? key}): super(key: key);
+  const Home ({super.key});
 
   @override
   Widget build(BuildContext context) {

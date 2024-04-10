@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_prj/Const/constants.dart';
 
-Widget customTextField({String? title , String? hint, controller}) {
+Widget customTextField({String? title , String? hint, controller, required bool ispass}) {
 return Column (
     crossAxisAlignment: CrossAxisAlignment.start,
 children:[
@@ -11,9 +11,9 @@ children:[
     TextFormField(
       controller: controller,
       decoration: InputDecoration(
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
       fontFamily: semibold,
-      color: fontGrey,
+      color: whiteColor,
   ),
       hintText: hint,
       isDense: true,
