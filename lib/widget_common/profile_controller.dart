@@ -1,13 +1,22 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_prj/Const/constants.dart';
 
-class profileController extends GetxController{
+class ProfileController extends GetxController{
   var profileImagePath=''.obs;
+  var profileImageLink='';
+  var isloading=false.obs;
 
   var nameController= TextEditingController();
-  var passController= TextEditingController();
+  var oldpassController= TextEditingController();
+  var newpassController= TextEditingController();
+
 
   changeImage(context)async{
     try{
@@ -19,6 +28,30 @@ class profileController extends GetxController{
       VxToast.show(context, msg: e.toString());
     }
   }
-//uploadProfileImage
+  // uploadProfileImage() async{
+  //   var filename= basename(profileImagePath.value);
+  //   var destination ='images/${currentUser!.uid}/$filename';
+  //   Reference ref =FirebaseStorage.instance.ref().child(destination);
+  //   await ref.putFile(File(profileImagePath.value));
+  //   profileImageLink= await ref.getDownloadURL();
 
- }
+  // }
+  uploadProfile({name, password}) async{
+    var store=firestore.collection(userColletion).doc(currentUser!.uid);
+    await store.set({
+      'name':name,
+      'password':password,
+    },SetOptions(merge:true));
+    isloading(false);
+
+  }
+  changeAuthPassword({email, password, newpassword}){
+    final cred=EmailAuthProvider.credential(email: email, password: password);
+    //await currentUser!.reauthenticateWithCredential(cred).then((value){
+
+    }
+       
+
+  }
+
+ 

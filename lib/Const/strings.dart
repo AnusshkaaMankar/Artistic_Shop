@@ -4,10 +4,12 @@ const credits = "@Baaba Devs";
 const email="Email";
 const emailHint="admin@gmail.com";
 const password="Password";
+const oldpassword="Old Password";
+const newpassword="new Password";
 const passwordHint="********";
 const retypePassword="Retype Password";
 const name="Name";
-const nameHint="Anushka Mankar";
+const nameHint="Name";
 const forgetPass="Forget Password";
 const login="Log in";
 const signup="Sign up";
@@ -49,3 +51,6 @@ const showpieces="Show Piece";
 
 
 const wishlist="Wishlist" , orders=" My Orders" , message="Messages", help="Help",review="Review";
+
+//item details strings
+const video="video" , reviews="Reviews",sellerpolicy="Seller Policy",returnpolicy="Return Policy", supportpolicy="Support Policy";

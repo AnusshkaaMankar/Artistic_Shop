@@ -36,6 +36,10 @@ const imgImg7='assets/images/img_7.png';
 const imgImg8='assets/images/img_8.png';
 const imgBucket1='assets/images/img_9.png';
 
+const imgImg10='assets/images/img_10.png';
+const imgImg11='assets/images/img_11.png';
+const imgImg12='assets/images/img_12.png';
+
 
 
 

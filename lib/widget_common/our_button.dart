@@ -1,9 +1,8 @@
 import 'package:my_prj/Const/constants.dart';
-
 Widget ourButton({onPress,color,textcolor,String? title}){
   return ElevatedButton(
       style:ElevatedButton.styleFrom(
-        primary: Colors.pink,
+        backgroundColor: Colors.pink,
         padding: const EdgeInsets.all(12),
       ),
       onPressed:

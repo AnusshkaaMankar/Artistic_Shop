@@ -9,6 +9,8 @@ const featuredTitles=[wallHangers,showPieces,flowerPots,FlowerBuckets];
 const categoriesImages=[imgImg,imgImg1,imgImg2,imgImg3,imgImg4,imgImg5,imgImg6,imgImg7,imgImg8];
 const categoriesList=[baskets,earthenLamp,wooden,sandPots,bathMats,bamboo,pottery,paint,showpieces];
 
+const basketSlider=[imgImg10,imgImg11,imgImg12];
 const profileButtonList=[orders,wishlist,message,help,review];
 const profileButtonIcon=[icOrders,icOrders,icMessage];
 
+const itemdetailsbuttonlist=[video,reviews,sellerpolicy,returnpolicy,supportpolicy];

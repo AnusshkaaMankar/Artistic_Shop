@@ -1,0 +1,85 @@
+{
+    "categories":[
+        {
+            "name": "Baskets",
+            "subCategory":[
+                "Wood",
+                "Wood",
+                "Wood"
+            ]
+        },
+        {
+            "name": "Earthen Lamp",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Earthen Lamp",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Wooden Pots",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Sand Pots",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Bath Mats",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Bamboo",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Painted pots",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Painted plates",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        },
+        {
+            "name": "Show Pieces",
+            "subCategory":[
+                "Sand",
+                "Sand",
+                "Sand"
+            ]
+        }
+
+    ]
+}

@@ -85,6 +85,7 @@ flutter:
     - assets/images/img_6.png
     - assets/images/img_7.png
     - assets/images/img_8.png
+    - lib/services/category_model.json
 
 
   # The following line ensures that the Material Icons font is
