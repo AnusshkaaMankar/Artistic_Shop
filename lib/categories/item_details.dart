@@ -85,7 +85,7 @@ class ItemDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               "Quantity:".text.color(pinkAccent).make(),
-                             Row(
+                          Obx(() =>    Row(
                                 children: [
                                   IconButton(onPressed: () {
                                     controller.decreaseQuantity();
@@ -95,7 +95,7 @@ class ItemDetails extends StatelessWidget {
                                     controller.increaseQuantity();
                                   }, icon: const Icon(Icons.add)),
                                 ],
-                              ),
+                              )),
                             ],
                           ).box.padding(const EdgeInsets.all(8)).color(Colors.white).shadowSm.make(),
                         ),
