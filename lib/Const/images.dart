@@ -40,7 +40,10 @@ const imgImg10='assets/images/img_10.png';
 const imgImg11='assets/images/img_11.png';
 const imgImg12='assets/images/img_12.png';
 
-
+// Payment Methods
+const PhonePe='assets/images/img_13.png';
+const Gpay='assets/images/img_14.png';
+const cod='assets/images/img_15.png';
 
 
 

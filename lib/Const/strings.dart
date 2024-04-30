@@ -54,3 +54,5 @@ const wishlist="Wishlist" , orders=" My Orders" , message="Messages", help="Help
 
 //item details strings
 const video="video" , reviews="Reviews",sellerpolicy="Seller Policy",returnpolicy="Return Policy", supportpolicy="Support Policy";
+
+const Phonepe="Phonepe", gpay="Gpay", Cod="Cash On Delivery";

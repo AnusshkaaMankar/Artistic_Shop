@@ -27,42 +27,16 @@ class CategoryModel {
 
 class Category {
     String name;
-    List<SubCategory> subCategory;
 
     Category({
         required this.name,
-        required this.subCategory,
     });
 
     factory Category.fromJson(Map<String, dynamic> json) => Category(
         name: json["name"],
-        subCategory: List<SubCategory>.from(json["subCategory"].map((x) => subCategoryValues.map[x])),
     );
 
     Map<String, dynamic> toJson() => {
         "name": name,
-        "subCategory": List<dynamic>.from(subCategory.map((x) => subCategoryValues.reverse[x])),
     };
-}
-
-enum SubCategory {
-    SAND,
-    WOOD
-}
-
-final subCategoryValues = EnumValues({
-    "Sand": SubCategory.SAND,
-    "Wood": SubCategory.WOOD
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        reverseMap = map.map((k, v) => MapEntry(v, k));
-        return reverseMap;
-    }
 }

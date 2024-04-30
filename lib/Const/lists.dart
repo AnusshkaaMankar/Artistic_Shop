@@ -14,3 +14,5 @@ const profileButtonList=[orders,wishlist,message,help,review];
 const profileButtonIcon=[icOrders,icOrders,icMessage];
 
 const itemdetailsbuttonlist=[video,reviews,sellerpolicy,returnpolicy,supportpolicy];
+const paymentMethodlist=[cod,PhonePe,Gpay];
+const paymentMethodlistNames=[Cod,Phonepe,gpay];

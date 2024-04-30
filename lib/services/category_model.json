@@ -1,84 +1,34 @@
 {
     "categories":[
         {
-            "name": "Baskets",
-            "subCategory":[
-                "Wood",
-                "Wood",
-                "Wood"
-            ]
+            "name": "Baskets"
         },
         {
-            "name": "Earthen Lamp",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Earthen Lamp"
         },
         {
-            "name": "Earthen Lamp",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Earthen Lamp"
         },
         {
-            "name": "Wooden Pots",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Wooden Pots"
         },
         {
-            "name": "Sand Pots",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Sand Pots"
         },
         {
-            "name": "Bath Mats",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Bath Mats"
         },
         {
-            "name": "Bamboo",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Bamboo"
         },
         {
-            "name": "Painted pots",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Painted pots"
         },
         {
-            "name": "Painted plates",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Painted plates"
         },
         {
-            "name": "Show Pieces",
-            "subCategory":[
-                "Sand",
-                "Sand",
-                "Sand"
-            ]
+            "name": "Show Pieces"
         }
 
     ]
