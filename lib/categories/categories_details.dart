@@ -42,7 +42,7 @@ class CategoryDetails extends StatelessWidget {
                     child: Row(
                       children: List.generate(
                         controller.cat.length,
-                        (index) => "${controller.cat[index]}"
+                        (index) => "${controller.cat[index].name}"
                             .text
                             .size(12)
                             .fontFamily(bold)
