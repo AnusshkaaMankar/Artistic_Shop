@@ -170,7 +170,7 @@ class ItemDetails extends StatelessWidget {
             child: ourButton(color: pinkAccent, onPress: () {
               controller.addToCart(
                 context: context,
-                img:imgBucket1,
+                img:data['p1_image'][0],
                 qty: controller.quantity.value,
                 sellername: data['p1_seller'],
                 title: data['p1_name'],

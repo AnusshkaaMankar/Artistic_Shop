@@ -42,7 +42,7 @@ class CategoryDetails extends StatelessWidget {
                     child: Row(
                       children: List.generate(
                         controller.cat.length,
-                        (index) => "${controller.cat[index]}"
+                        (index) => "${controller.cat[index].name}"
                             .text
                             .size(12)
                             .fontFamily(bold)
@@ -96,7 +96,7 @@ class CategoryDetails extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Image.network(
-                                    "${data[0]['p1_image']}",
+                                    "${data[index]['p1_image'][0]}",
                                     height: 110,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
@@ -110,7 +110,7 @@ class CategoryDetails extends StatelessWidget {
                                       ),
                                     ),
 
-                                  const SizedBox(height: 5),
+                                  const SizedBox(height: 1),
                                   Text(
                                     "${data[index]['p1_price']}",
                                     style: const TextStyle(
