@@ -42,7 +42,7 @@ class CategoryDetails extends StatelessWidget {
                     child: Row(
                       children: List.generate(
                         controller.cat.length,
-                        (index) => "${controller.cat[index].name}"
+                        (index) => "${controller.cat[index]}"
                             .text
                             .size(12)
                             .fontFamily(bold)
@@ -72,6 +72,7 @@ class CategoryDetails extends StatelessWidget {
                         ),
                         itemBuilder: (context, index) {
                           var item = data[index];
+                          print(item["p1_seller"]);
                           return GestureDetector(
                             onTap: () {
                               controller.checkIfFav(data[index]);
@@ -94,15 +95,15 @@ class CategoryDetails extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset(
-                                    imgBucket1,
+                                  Image.network(
+                                    "${data[0]['p1_image']}",
                                     height: 110,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                   const SizedBox(height: 10),
                                   Text(
-                                      "$data[index]['p1_category']",
+                                      "${data[index]['p1_category']}",
                                       style: const TextStyle(
                                         fontFamily: semibold,
                                         color: darkFontGrey,
@@ -111,7 +112,7 @@ class CategoryDetails extends StatelessWidget {
 
                                   const SizedBox(height: 5),
                                   Text(
-                                    "$data['p1_price']",
+                                    "${data[index]['p1_price']}",
                                     style: const TextStyle(
                                       fontFamily: bold,
                                       color: Colors.pinkAccent,

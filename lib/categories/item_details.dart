@@ -63,16 +63,16 @@ class ItemDetails extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children:[
                     VxSwiper.builder(
                       autoPlay: true,
                       height: 350,
-                      itemCount:3,
+                      itemCount:data['p1_image'].length,
                       viewportFraction: 1.0,
                       aspectRatio: 16 / 9,
                       itemBuilder: (context, index) {
-                        return Image.asset(
-                          basketSlider[index],
+                        return Image.network(
+                          "${data['p1_image'][index]}",
                           width: double.infinity,
                           fit: BoxFit.cover,
                         );
@@ -175,7 +175,7 @@ class ItemDetails extends StatelessWidget {
                 sellername: data['p1_seller'],
                 title: data['p1_name'],
                 tprice:controller.totalPrice.value);
-                Get.to(()=>const CartScreen());
+                //Get.to(()=>const CartScreen());
             }, textcolor: whiteColor, title: "Add to Cart"),
           )
         ],
